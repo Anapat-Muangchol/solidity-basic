@@ -5,7 +5,8 @@
   "scripts": {
     "build": "hardhat compile",
     "test:light": "hardhat test",
-    "test": "hardhat coverage"
+    "test": "hardhat coverage",
+    "clean": "hardhat clean"
   },
   "keywords": [],
   "author": "",
