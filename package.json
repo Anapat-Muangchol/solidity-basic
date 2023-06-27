@@ -6,7 +6,9 @@
     "build": "hardhat compile",
     "test:light": "hardhat test",
     "test": "hardhat coverage",
-    "clean": "hardhat clean"
+    "clean": "hardhat clean",
+    "deploy:local": "hardhat run --network localhost scripts/DeployMyContract.js",
+    "local-testnet": "hardhat node"
   },
   "keywords": [],
   "author": "",
