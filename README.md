@@ -20,6 +20,11 @@ install dependency hardhat plug-in
 npm install --save-dev @nomiclabs/hardhat-waffle @nomiclabs/hardhat-ethers ethereum-waffle chai solidity-coverage
 ```
 
+### Start Web Server
+```
+docker run -d -p 9000:80 -v ./web:/usr/share/nginx/html --name solidity-project nginx
+```
+
 
 log from deploy MyContract
 ```
