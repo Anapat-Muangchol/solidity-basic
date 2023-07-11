@@ -7,7 +7,7 @@
     "test:light": "hardhat test",
     "test": "hardhat coverage",
     "clean": "hardhat clean",
-    "deploy:local": "hardhat run --network localhost scripts/DeployDoubleDeposit.js",
+    "deploy:local": "hardhat run --network localhost scripts/DeployContract.js",
     "local": "hardhat node",
     "chain": "npx hardhat node",
     "accounts": "npx hardhat accounts"

@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/anapat.mua/Main/Learning/Coding/solidity/solidity-basic/contracts/DoubleDeposit.sol": {
-      "lastModificationDate": 1688907550214,
+    "/Users/anapat.mua/Main/Learning/Coding/solidity/solidity-bsc-hardhat/contracts/DoubleDeposit.sol": {
+      "lastModificationDate": 1688908771827,
       "contentHash": "fd29ee13c019781263f0f84b591ff189",
       "sourceName": "contracts/DoubleDeposit.sol",
       "solcConfig": {
@@ -36,8 +36,8 @@
         "DoubleDeposit"
       ]
     },
-    "/Users/anapat.mua/Main/Learning/Coding/solidity/solidity-basic/contracts/MyContracts.sol": {
-      "lastModificationDate": 1687860949208,
+    "/Users/anapat.mua/Main/Learning/Coding/solidity/solidity-bsc-hardhat/contracts/MyContracts.sol": {
+      "lastModificationDate": 1688908771828,
       "contentHash": "12430fe950bcf794d5b3a4effac66eac",
       "sourceName": "contracts/MyContracts.sol",
       "solcConfig": {

@@ -22,7 +22,10 @@ npm install --save-dev @nomiclabs/hardhat-waffle @nomiclabs/hardhat-ethers ether
 
 ### Start Web Server
 ```
-docker run -d -p 9000:80 -v ./web:/usr/share/nginx/html --name solidity-project nginx
+// re-build when contract has been changed.
+$ docker build -t solidity-project:0.0.1 .
+
+$ docker run -d -p 9000:80 -v ./web:/usr/share/nginx/html --name solidity-project solidity-project:0.0.1
 ```
 
 

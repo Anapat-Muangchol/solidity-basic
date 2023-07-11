@@ -49,35 +49,47 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         alert('Metamask is not install')
     }
+
+    function toggleDisplay(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none") {
+        x.style.display = "block";
+        } else {
+        x.style.display = "none";
+        }
+    }
+
+    // ===== Contracts =====
+    const myContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // smart contract address deployed.
+    console.log(myContractAddress)
+    // const myContractABI = fetch('./contracts/MyContract.json').then((response) => response);
+    const myContractABI = [{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    console.log(myContractABI)
+
+    const web3 = new Web3('http://localhost:8545'); // use hardhat network
+
+    const myContract = new web3.eth.Contract(myContractABI, myContractAddress);
+
+    const writeNameButton = document.getElementById("writeNameBtn");
+    writeNameButton.addEventListener("click", async function() {
+        const name = document.getElementById('name').value;
+
+        try {
+            await myContract.methods.setName(name).send({ from: accounts[0] });
+            alert("Write name to blockchain success!");
+        } catch (error) {
+            console.error(error);
+        }
+    });
+
+    const getNameButton = document.getElementById("getNameBtn");
+    getNameButton.addEventListener("click", async function() {
+        try {
+            const name = await myContract.methods.getName().call();
+            document.getElementById("display-name").innerHTML = `Your name is ${name}`;
+        } catch (error) {
+            console.error(error);
+        }
+    });
 });
 
-function toggleDisplay(id) {
-    var x = document.getElementById(id);
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-}
-
-
-// const contractAddress = 'YOUR_CONTRACT_ADDRESS'; // ใส่ที่อยู่ของ smart contract ที่คุณได้เสร็จสิ้นการตั้งค่า
-// const contractABI = [
-//     // ใส่ ABI ของ smart contract ที่คุณได้เสร็จสิ้นการคอมไพล์
-// ];
-
-// const web3 = new Web3(Web3.givenProvider || 'http://localhost:8545'); // ใช้ provider ของเครือข่าย Ethereum ที่เราเชื่อมต่อ
-// const contract = new web3.eth.Contract(contractABI, contractAddress);
-
-// async function writeName() {
-//     const amount = document.getElementById('name').value;
-//     const accounts = await web3.eth.requestAccounts();
-
-//     try {
-//         await contract.methods.deposit().send({ from: accounts[0], value: web3.utils.toWei(amount, 'ether') });
-//         displayStatus('Deposit successful!', true);
-//     } catch (error) {
-//         console.error(error);
-//         displayStatus('Deposit failed!', false);
-//     }
-// }
