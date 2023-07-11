@@ -1,19 +1,19 @@
 const { expect } = require('chai');
 const { ethers } = require('hardhat');
 
-describe('MyContract', () => {
+describe('NameContract', () => {
     it('should return its name', async () => {
         // --- Given ---
         const name = 'My Contract'
 
         // --- When ---
-        const MyContract = await ethers.getContractFactory('MyContract');
-        const myContract = await MyContract.deploy(name);
+        const NameContract = await ethers.getContractFactory('NameContract');
+        const contract = await NameContract.deploy(name);
 
-        await myContract.deployed();
+        await contract.deployed();
 
         // --- Then ---
-        expect(await myContract.getName()).to.equal(name)
+        expect(await contract.getName()).to.equal(name)
     })
 
     it('should change its name when requested', async () => {
@@ -22,13 +22,13 @@ describe('MyContract', () => {
         const newName = 'Another Contract'
 
         // --- When ---
-        const MyContract = await ethers.getContractFactory('MyContract');
-        const myContract = await MyContract.deploy(oldName);
+        const NameContract = await ethers.getContractFactory('NameContract');
+        const contract = await NameContract.deploy(oldName);
 
         // await myContract.deployed();
-        await myContract.setName(newName);
+        await contract.setName(newName);
 
         // --- Then ---
-        expect(await myContract.getName()).to.equal(newName)
+        expect(await contract.getName()).to.equal(newName)
     })
 })

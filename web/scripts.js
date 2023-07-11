@@ -60,22 +60,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ===== Contracts =====
-    const myContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // smart contract address deployed.
-    console.log(myContractAddress)
-    // const myContractABI = fetch('./contracts/MyContract.json').then((response) => response);
-    const myContractABI = [{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[],"stateMutability":"nonpayable","type":"function"}]
-    console.log(myContractABI)
-
     const web3 = new Web3('http://localhost:8545'); // use hardhat network
 
-    const myContract = new web3.eth.Contract(myContractABI, myContractAddress);
+    const nameContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // smart contract address deployed.
+    // const nameContractABI = fetch('./contracts/NameContract.json').then((response) => response.abi);
+    const nameContractABI = [{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    const nameContract = new web3.eth.Contract(nameContractABI, nameContractAddress);
 
     const writeNameButton = document.getElementById("writeNameBtn");
     writeNameButton.addEventListener("click", async function() {
         const name = document.getElementById('name').value;
 
         try {
-            await myContract.methods.setName(name).send({ from: accounts[0] });
+            await nameContract.methods.setName(name).send({ from: accounts[0] });
             alert("Write name to blockchain success!");
         } catch (error) {
             console.error(error);
@@ -85,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const getNameButton = document.getElementById("getNameBtn");
     getNameButton.addEventListener("click", async function() {
         try {
-            const name = await myContract.methods.getName().call();
+            const name = await nameContract.methods.getName().call();
             document.getElementById("display-name").innerHTML = `Your name is ${name}`;
         } catch (error) {
             console.error(error);
