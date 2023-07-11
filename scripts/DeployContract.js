@@ -4,17 +4,17 @@ async function main() {
 }
 
 async function deployMyContract() {
-    const MyContract = await ethers.getContractFactory('MyContract');
-    const myContract = await MyContract.deploy("My Contract");
+    const NameContract = await ethers.getContractFactory('NameContract');
+    const contractDeployed = await NameContract.deploy("");
 
-    console.log("My Contract deployed to:", myContract.address);
+    console.log("My Contract deployed to:", contractDeployed.address);
 }
 
 async function deployDoubleDepositContract() {
     const DoubleDepositContract = await ethers.getContractFactory('DoubleDeposit');
-    const doubleDepositContract = await DoubleDepositContract.deploy();
+    const contractDeployed = await DoubleDepositContract.deploy();
 
-    console.log("Double Deposit deployed to:", doubleDepositContract.address);
+    console.log("Double Deposit deployed to:", contractDeployed.address);
 }
 
 main()

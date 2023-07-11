@@ -83,7 +83,11 @@ document.addEventListener("DOMContentLoaded", function() {
     getNameButton.addEventListener("click", async function() {
         try {
             const name = await nameContract.methods.getName().call();
-            document.getElementById("display-name").innerHTML = `Your name is ${name}`;
+            if (name) {
+                document.getElementById("display-name").innerHTML = `Your name is "${name}"`;
+            } else {
+                alert("Please write name to blockchain")
+            }
         } catch (error) {
             console.error(error);
         }
