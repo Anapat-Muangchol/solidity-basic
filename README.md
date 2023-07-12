@@ -32,7 +32,10 @@ $ docker run -d -p 9000:80 -v ./web:/usr/share/nginx/html --name solidity-projec
 log from deploy MyContract
 ```
 Compiled 1 Solidity file successfully
-My Contract deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+Name Contract deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+// BSC Testnet
+Name Contract deployed to: 0xe524656e3BCb3bf4C4462C8CC3D57ca6a551E581
 ```
 
 log from local eth chain

@@ -1,13 +1,13 @@
 async function main() {
-    await deployMyContract();
-    await deployDoubleDepositContract();
+    await deployNameContract();
+    // await deployDoubleDepositContract();
 }
 
-async function deployMyContract() {
+async function deployNameContract() {
     const NameContract = await ethers.getContractFactory('NameContract');
     const contractDeployed = await NameContract.deploy("");
 
-    console.log("My Contract deployed to:", contractDeployed.address);
+    console.log("Name Contract deployed to:", contractDeployed.address);
 }
 
 async function deployDoubleDepositContract() {

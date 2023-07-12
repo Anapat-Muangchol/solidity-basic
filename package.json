@@ -8,6 +8,7 @@
     "test": "hardhat coverage",
     "clean": "hardhat clean",
     "deploy:local": "hardhat run --network localhost scripts/DeployContract.js",
+    "deploy:bsc-testnet": "hardhat run --network bsc_testnet scripts/DeployContract.js",
     "local": "hardhat node",
     "chain": "npx hardhat node",
     "accounts": "npx hardhat accounts"

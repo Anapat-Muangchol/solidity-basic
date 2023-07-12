@@ -59,14 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // ===== Contracts =====
-    const web3 = new Web3('http://localhost:8545'); // use hardhat network
-
-    const nameContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'; // smart contract address deployed.
-    // const nameContractABI = fetch('./contracts/NameContract.json').then((response) => response.abi);
-    const nameContractABI = [{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"}],"name":"setName","outputs":[],"stateMutability":"nonpayable","type":"function"}]
-    const nameContract = new web3.eth.Contract(nameContractABI, nameContractAddress);
-
     const writeNameButton = document.getElementById("writeNameBtn");
     writeNameButton.addEventListener("click", async function() {
         const name = document.getElementById('name').value;
